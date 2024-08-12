@@ -1,6 +1,6 @@
 # Read in a CSV file with sales data 
-# Create a pivot table, aggregating sales by region.
-# Add in sub-columns showing the average sales by state, by sale type (retail or wholesale).
+# Create a pivot table that shows sales by region and product, summing the
+# quantity and sales price per row.
 
 import pandas as pd
 pd.set_option("display.float_format", "${:,.2f}".format)
@@ -12,9 +12,10 @@ sales_data = pd.read_csv(
 
 
 pivot = sales_data.pivot_table(
-   values="sale_price", index="customer_state", columns=["customer_type", "order_type"],
-   aggfunc="mean", 
-)
+   values=["sale_price", "quantity"], 
+   index=["sales_region", "product_category"],
+   aggfunc="sum", fill_value=0,
+).loc[:,["sales_price","quantity"]]
 
 pd.set_option("display.max_columns", None)
 

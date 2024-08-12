@@ -1,6 +1,6 @@
 # Read in a CSV file with sales data 
-# Create a pivot table, aggregating sales by region.
-# Add in sub-columns showing the average sales by state, by sale type (retail or wholesale).
+# Create a pivot table with sub-rows showing sales by customer type and order type.
+# Show this by state.
 
 import pandas as pd
 pd.set_option("display.float_format", "${:,.2f}".format)
@@ -12,8 +12,9 @@ sales_data = pd.read_csv(
 
 
 pivot = sales_data.pivot_table(
-   values="sale_price", index="customer_state", columns=["customer_type", "order_type"],
-   aggfunc="mean", 
+   values="sale_price", index=["customer_type", "order_type", "customer_state"],
+   columns="product_category",
+   aggfunc="sum", fill_value=0,
 )
 
 pd.set_option("display.max_columns", None)
