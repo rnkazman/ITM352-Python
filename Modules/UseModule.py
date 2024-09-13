@@ -11,6 +11,8 @@ second = float(second)
 
 average = HM.average(first,second)
 
+print (HM.average.__name__)
+
 print(f"The average of {first} and {second} is {average}")
 
 print(f"The square of {first} is {HM.square(first)}")
