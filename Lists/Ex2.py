@@ -5,6 +5,7 @@ first = input("Enter your first name: ")
 middleInitial = input("Enter your middle initial: ")
 last = input("Enter your last name: ")
 
+print(first[0],first[1:4])
 fullName = first + " " + middleInitial + " " + last
 fullNameJoin = " ".join((first,middleInitial,last))
 print("Your full name is:", fullName)
