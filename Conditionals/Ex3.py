@@ -1,23 +1,17 @@
-def determine_progress1(hits, spins):
-    if spins == 0:
-        return "Get going!"
-    
-    hits_spins_ratio = hits / spins
+# A leap year is a year that consists of 366 (not 365) days. 
+# It occurs roughly every four years. More specifically, a 
+# year is considered leap if it is either divisible by 4 but 
+# not by 100 or it is divisible by 400.
 
-    if hits_spins_ratio > 0:
-        progress = "On your way!"
-        if hits_spins_ratio >= 0.25:
-            progress = "Almost there!"
-            if hits_spins_ratio >= 0.5:
-                if hits < spins:
-                    progress = "You win!"
+year = int(input('Provide a year: '))
+ 
+if (year % 4) == 0:
+    if (year % 100) == 0:
+        if (year % 400) == 0:
+            print('leap year')
+        else:
+            print('not a leap year')
     else:
-        progress = "Get going!"
-
-    return progress
-
-def test_determine_progress(progress_function):
-   # Test case 1: spins = 0 returns “Get going!”
-    assert progress_function(1, 10) == "Get going!", "Test case 1 failed"
-
-test_determine_progress(determine_progress1)
+        print('leap year')
+else:
+    print('not a leap year')
