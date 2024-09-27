@@ -1,2 +1,2 @@
 # ITM352F24
-ITM352 Kazman Fall 2024 (E203, WF 1200-1315)
+ITM352 Python Private site
