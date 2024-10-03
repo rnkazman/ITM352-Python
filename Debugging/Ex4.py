@@ -1,3 +1,4 @@
+# Debugging Exercise 4
 def get_element(list, index):
     return list[index]
 

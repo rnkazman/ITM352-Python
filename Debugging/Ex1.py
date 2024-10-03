@@ -1,3 +1,4 @@
+# Debugging Exercise 1
 product = {
     "name": 'small gumball', 
     "price":'$0.34'

@@ -1,3 +1,4 @@
+# Debugging Exercise 3
 def multiply(x, y):
     result = x * y
     
