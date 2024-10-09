@@ -6,4 +6,5 @@ for x in nameFile:
     count += 1
     print(x)
 
+nameFile.close
 print(f"\nThere are {count} names in the file")
