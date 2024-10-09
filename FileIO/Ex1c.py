@@ -1,5 +1,8 @@
 # Read a file of names.  Print them and print the number of names in the file. 
 
+with open("Names.txt") as my_file:
+    print(my_file.read())   
+
 with open("Names.txt") as nameFile:
     count = 0
     for x in nameFile:
@@ -7,9 +10,6 @@ with open("Names.txt") as nameFile:
         print(x)
 
     print(f"\nThere are {count} names in the file")
-    
-with open("Names.txt") as my_file:
-    print(my_file.read())    
 
 with open("Names.txt") as nameFile:
     line = nameFile.readline()
