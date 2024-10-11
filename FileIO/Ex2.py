@@ -8,7 +8,7 @@ total_RealInc = 0
 max_RealInc = 0
 min_RealInc = 99999999999   # Choose a very large number for min income
 num_values = 0
-with open("survey_1000.csv", "r") as csvfile:
+with open("/Users/rnkazman/Downloads/survey_1000.csv", "r") as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
 
     for line in csv_reader:
