@@ -13,4 +13,4 @@ print("dimensions of household income array: ", hh_income_array.ndim)
 print("number of elements in household income array: ", hh_income_array.size)
 
 for i in range(len(hh_income_array)):
-    print(hh_income_array[i][0])
+    print(hh_income_array[i][0], hh_income_array[i][1])
