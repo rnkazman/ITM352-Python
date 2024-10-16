@@ -1,18 +1,16 @@
 # Read in a CSV file with sales data and print the first 5 rows
-# Create a pivot table, aggregating sales by region.
+# Create a pivot table, aggregating sales by region, with columns defined by order_type (which is either Retail or Wholesale).
 import pandas as pd
 pd.set_option("display.float_format", "${:,.2f}".format)
 
+# We choose dtype_backend="pyarrow" as this is more memory efficient than dtype_backend="numpy"
 sales_data = pd.read_csv(
- "sales_data.csv",
- parse_dates=["order_date"],
- dayfirst=True, ).convert_dtypes(dtype_backend="pyarrow")
+ "sales_data.csv").convert_dtypes(dtype_backend="pyarrow")
 
-# pivot = sales_data.pivot_table(
-#   values="sale_price", index="sales_region", columns="order_type",
-#   aggfunc="sum",
-#)
+# We ask Pandas to parse the order_date field to turn it into a standard representation.
+sales_data['order_date'] = pd.to_datetime(sales_data['order_date'], format='mixed')
 
+# Create the pivot table. Set "margins=True" to add a Totals column and a Totals row
 pivot = sales_data.pivot_table(
    values="sale_price", index="sales_region", columns="order_type",
    aggfunc="sum", margins=True, margins_name="Totals",
@@ -21,4 +19,4 @@ pivot = sales_data.pivot_table(
 pd.set_option("display.max_columns", None)
 
 print(sales_data.head(5))
-print(pivot)
+print("\nPivot table=\n",pivot)
