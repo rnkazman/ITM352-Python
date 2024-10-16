@@ -1,5 +1,5 @@
 # Read in a CSV file with sales data 
-# Create a pivot table, aggregating sales by region.
+# Create a pivot table, aggregating sales by region, with columns defined by order_type (which is either Retail or Wholesale).
 # Add in sub-columns showing the average sales by state, by sale type (retail or wholesale).
 
 import pandas as pd
