@@ -1,6 +1,8 @@
 # Read a file from a URL and write a local file “sales_data_test.csv” file from the first 10 rows of this data.  
 import pandas as pd
 import pyarrow # not needed, but it's a good practice to import it
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # The file at this URL contains a large data set. It must be downloadable and in CSV format to be read by pandas.
 url = "https://drive.google.com/uc?id=1ujY0WCcePdotG2xdbLyeECFW9lCJ4t-K"
