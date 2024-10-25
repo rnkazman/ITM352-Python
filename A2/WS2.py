@@ -1,10 +1,11 @@
-
+# Load a CSV file into a Dataframe. Print the time it took to load, some stats, and the first few rows.
 import pandas as pd
 import time
 
 # Set display.max_columns to None, to force display of all columns
 pd.set_option("display.max_columns", None)
 
+# Function to load the CSV file, returning a dataFrame
 def load_csv(file_path):
     print(f"Starting to load {file_path}...")
     start_time = time.time()
@@ -53,6 +54,7 @@ def load_csv(file_path):
         print(f"An unexpected error occurred:")
         print(str(e))
         return None
+
 
 url = 'sales_data_test.csv'
 #url = "https://drive.google.com/uc?id=1ujY0WCcePdotG2xdbLyeECFW9lCJ4t-K"

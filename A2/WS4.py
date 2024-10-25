@@ -4,8 +4,8 @@ import pandas as pd
 import time
 import sys
 import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
 
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Set display.max_rows to None, to force display of all rows
 #pd.set_option("display.max_columns", None)
@@ -80,7 +80,42 @@ def display_rows(data):
             break
         else:
             print("Invalid input. Please use the specified formats.")
+            
+            
+def display_menu(data):
+    menu_options = (
+   ("Show the first n rows of sales data", display_rows),
+   ("Show the number of employees by region", employees_by_region),
+   ("Exit the program", exit_program)
+)
 
+    print("\nAvailable Actions:")
+    for index, (description, _) in enumerate(menu_options):
+        print(f"{index + 1}. {description}")
+    
+    try:
+        choice = int(input("Select an option (1 to {}): ".format(len(menu_options))))
+        if 1 <= choice <= len(menu_options):
+            action = menu_options[choice - 1][1]
+            action(data)      # Call the selected function
+        else:
+            print("Invalid choice. Please select a number from the menu.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+def exit_program(data):
+    sys.exit(0)
+
+# Functions for predefined analytics tasks
+def employees_by_region(data):
+    pivot_table = pd.pivot_table(data, index='sales_region', values='employee_id', aggfunc=pd.Series.nunique)
+    pivot_table.columns = ['Number of Employees']  # Rename the colummn for readability
+    print("\nNumber of Employees by Region:")
+    print(pivot_table)
+    return pivot_table
+
+
+# Program main loop
 
 #url = 'sales_data_test.csv'
 url = "https://drive.google.com/uc?export=download&id=1Fv_vhoN4sTrUaozFPfzr0NCyHJLIeXEA"
@@ -91,7 +126,7 @@ sales_data = load_csv(url)
 def main():
     # Main loop
     while True:
-        display_rows(sales_data)
+        display_menu(sales_data)
 
 if __name__ == "__main__":
     main()
