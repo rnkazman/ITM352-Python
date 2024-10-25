@@ -6,7 +6,6 @@ import sys
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-
 # Set display.max_rows to None, to force display of all rows
 #pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", None)
@@ -59,7 +58,6 @@ def load_csv(file_path):
         print(f"An unexpected error occurred:")
         print(str(e))
         return None
-    
 
 def display_rows(data):
     while True:
