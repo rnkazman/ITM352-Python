@@ -1,10 +1,15 @@
-
+# Allow users to interactively explore and analyze sales data from a CSV file by providing 
+# a simple command-line interface for user interaction.
 import pandas as pd
 import time
 import sys
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 # Set display.max_columns to None, to force display of all columns
-pd.set_option("display.max_columns", None)
+#pd.set_option("display.max_columns", None)
+pd.set_option("display.max_rows", None)
 
 def load_csv(file_path):
     print(f"Starting to load {file_path}...")
@@ -56,7 +61,7 @@ def load_csv(file_path):
         return None
     
 
-def display_initial_rows(data):
+def display_rows(data):
     while True:
         print("\nEnter rows to display:")
         print(f"- Enter a number 1 to {len(data)-1}")
@@ -77,8 +82,8 @@ def display_initial_rows(data):
             print("Invalid input. Please use the specified formats.")
 
 
-url = 'sales_data_test.csv'
-#url = "https://drive.google.com/uc?id=1ujY0WCcePdotG2xdbLyeECFW9lCJ4t-K"
+#url = 'sales_data_test.csv'
+url = "https://drive.google.com/uc?export=download&id=1Fv_vhoN4sTrUaozFPfzr0NCyHJLIeXEA"
 
 # Load the CSV file
 sales_data = load_csv(url)
@@ -86,7 +91,7 @@ sales_data = load_csv(url)
 def main():
     # Main loop
     while True:
-        display_initial_rows(sales_data)
+        display_rows(sales_data)
 
 if __name__ == "__main__":
     main()
