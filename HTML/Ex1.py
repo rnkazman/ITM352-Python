@@ -1,3 +1,4 @@
+# Open up a URL and print some content from it.
 import urllib.request
 import ssl
 

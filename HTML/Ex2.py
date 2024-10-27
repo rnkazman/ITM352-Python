@@ -1,3 +1,4 @@
+# Open a URL and extract its table information as a DataFrame.
 import urllib.request
 import ssl
 import pandas as pd

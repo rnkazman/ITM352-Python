@@ -1,3 +1,4 @@
+# Parse a web site to extract specific contents, using BeautifulSoup
 from bs4 import BeautifulSoup
 import urllib.request
 import pandas as pd
@@ -10,9 +11,10 @@ itm_html = urllib.request.urlopen(itm_url)
 
 html_to_parse = BeautifulSoup(itm_html, "html.parser")
 
-# Modify the following line of code to create a list of audiobooks found in the webpage:
+# Find just the ITM people
 List_of_itm_people = html_to_parse.find_all('h2', class_="title")
 
+# Create a list of the people retrieved
 itm_people = []
 for element in List_of_itm_people:
     itm_people.append(element.text)
