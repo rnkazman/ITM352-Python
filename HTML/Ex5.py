@@ -1,8 +1,8 @@
+# Get a JSON file of data. Using a SQL-like query, select data about driver types.
 import requests
 import pandas as pd
-
-# Modify the string in the following line to create a REST query 
-# that returns the count of licenses by driver_type
+ 
+# Create a REST query that returns the count of licenses by driver_type
 search_results = requests.get("https://data.cityofchicago.org/resource/97wa-y6ff.json?"+
                               "$select=driver_type,count(license)&"+
                               "$group=driver_type").json()
