@@ -10,6 +10,14 @@ itm_url = "https://shidler.hawaii.edu/itm/people"
 itm_html = urllib.request.urlopen(itm_url)
 
 html_to_parse = BeautifulSoup(itm_html, "html.parser")
+pretty_html = html_to_parse.prettify()
+
+lines = pretty_html.splitlines()
+num_lines_to_print = 10
+
+# Print the first few lines
+for line in lines[:num_lines_to_print]:
+    print(line)
 
 # Find just the ITM people
 List_of_itm_people = html_to_parse.find_all('h2', class_="title")
