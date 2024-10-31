@@ -1,3 +1,6 @@
+# Use the requests library to pull data from hicentral.com (Hawaii Realty Site) on current
+# local mortgage rates.
+
 import requests
 from bs4 import BeautifulSoup
 
