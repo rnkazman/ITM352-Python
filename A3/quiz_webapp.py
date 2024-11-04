@@ -43,7 +43,8 @@ def result():
     template = render_template('result.html', score=score, total=len(questions))
     score = 0; # reset the score
     question_num = 0; # reset the question counter
-    return template
+    return template 
+
 
 # Functions for main processing steps
 def prepare_questions(questions, num_questions):
