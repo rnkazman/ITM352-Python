@@ -14,7 +14,7 @@ pd.set_option("display.float_format", "${:,.2f}".format)
 sales_data = pd.read_csv(
  "sales_data.csv").convert_dtypes(dtype_backend="pyarrow")
 
-# We ask Pandas to parse the order_date field to turn it into a standard representation.
+# Ask Pandas to parse the order_date field to turn it into a standard representation.
 sales_data['order_date'] = pd.to_datetime(sales_data['order_date'], format='mixed')
 
 # Calculate the number of unique employees per region
