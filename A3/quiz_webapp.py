@@ -41,8 +41,8 @@ def result():
     global score, question_num # get access to the score and question_number variables outside the function
     # get the result template before resetting the score and question number
     template = render_template('result.html', score=score, total=len(questions))
-    score = 0; # reset the score
-    question_num = 0; # reset the question counter
+    score = 0         # reset the score
+    question_num = 0  # reset the question counter
     return template 
 
 
@@ -64,15 +64,16 @@ def ask_question(question, alternatives):
         print(f"The answer is {correct_answer!r}, not {answer!r}\n")
         return 0
 
+
 # Main quiz steps: preparing questions, running the quiz, giving feedback
 # Read in and load the file of quiz questions
-f = open('questions.json')
+question_file = open('questions.json')
 NUM_QUESTIONS_PER_QUIZ = 5
-QUESTIONS = json.load(f)
+QUESTIONS = json.load(question_file)
 questions = prepare_questions(QUESTIONS, num_questions=NUM_QUESTIONS_PER_QUIZ)
 
-question_num = 0; # initialize the question counter
-score = 0; # initialize the score
+question_num = 0  # initialize the question counter
+score = 0         # initialize the score
 
 # Run the application
 if __name__ == '__main__':
