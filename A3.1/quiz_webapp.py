@@ -1,5 +1,7 @@
 # Quiz game example
 from flask import Flask, render_template, request, redirect, url_for
+import json
+
 
 app = Flask(__name__)
 @app.route("/")
@@ -8,14 +10,17 @@ def home():
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
-    global QUESTIONS
+    global QUESTIONS, question_num, score, question_list
     
     #Check if the user has answered a question
     if request.method == 'POST':
         return redirect(url_for('result'))
     
     # Load the question and options to display
-    return render_template('quiz.html')  # Displays the question and options
+    question_num += 1
+    print(f"question_num={question_num}, question={QUESTIONS[question_num-1][0]}")
+    return render_template('quiz.html', num=question_num, question=question_list[question_num-1][0], 
+                           options=question_list[question_num-1][1])  # Displays the question and options
 
 @app.route('/result')
 def result():
@@ -23,6 +28,11 @@ def result():
     score = 1  # Example score for demonstration
     return render_template('result.html', score=score)
 
+question_file = open('questions.json')
+QUESTIONS = json.load(question_file)
+question_list = list(QUESTIONS.items())
+question_num = 0
+score = 0
 
 # Run the application
 if __name__ == '__main__':

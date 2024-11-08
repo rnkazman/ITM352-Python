@@ -4,12 +4,13 @@
     <title>Quiz</title>
 </head>
 <body>
-    <h1>Question 1: What is the capital of France?</h1>
+    <h1>Question {{ num }}:</h1>
+    <h2>{{ question }}</h2>
     <form method="POST">
-        <input type="radio" name="answer" value="Paris"> Paris<br>
-        <input type="radio" name="answer" value="Rome"> Rome<br>
-        <input type="radio" name="answer" value="Madrid"> Madrid<br>
-        <input type="radio" name="answer" value="Berlin"> Berlin<br>
+        {% for option in options %}
+        <input type="radio" name="answer" value="{{ option }}">{{ option }}<br>
+        {% endfor %}
+        <br>
         <button type="submit">Submit Answer</button>
     </form>
 </body>
