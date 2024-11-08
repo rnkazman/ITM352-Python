@@ -18,7 +18,6 @@ def quiz():
     
     # Load the question and options to display
     question_num += 1
-    print(f"question_num={question_num}, question={QUESTIONS[question_num-1][0]}")
     return render_template('quiz.html', num=question_num, question=question_list[question_num-1][0], 
                            options=question_list[question_num-1][1])  # Displays the question and options
 
