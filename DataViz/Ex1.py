@@ -1,4 +1,4 @@
-# Create a historgram from the trip miles data
+# Create a histogram from the trip miles data
 import pandas as pd
 import matplotlib.pyplot as plt
 

@@ -11,8 +11,9 @@ trip_miles = trip_miles_gt_0.trip_miles
 fig = plt.figure()
 
 # Use a cyan colored triangle down marker with a transparency of 0.2
-plt.plot(trip_miles, fare_series, marker = "v", linestyle = "none", color = 'c',
-         label = "Taxi Fare", alpha = 0.2)
+#plt.plot(trip_miles, fare_series, linestyle= "none", marker=".")
+#plt.plot(trip_miles, fare_series, marker = "v", linestyle = "none", color = 'c', label = "Taxi Fare", alpha = 0.2)
+plt.scatter(trip_miles, fare_series)
 plt.title('Fares by Taxi Trip Miles')
 plt.xlabel('Miles')
 plt.ylabel('Dollars')

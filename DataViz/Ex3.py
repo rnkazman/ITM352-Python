@@ -8,6 +8,7 @@ fare_series = trips_df.fare
 tips_series = trips_df.tips
 
 fig = plt.figure()
+
 # write a line to plot tips (y-axis) by fare (x-axis) on a scatterplot
 plt.plot(fare_series, tips_series, marker = ".", linestyle = "none")
 
