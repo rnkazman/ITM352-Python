@@ -5,9 +5,10 @@ import numpy as np
 
 trips_df = pd.read_json('../Trips from area 8.json')
 
-# pull the tips and payment_type columns:
+# Grab the tips and payment_type columns
 trips_df = trips_df[['tips', 'payment_type']]
 
+# Get rid of rows with empty values
 trips_df = trips_df.dropna()
 trips_df = trips_df.astype({'tips' : float})
 trips_df = trips_df.set_index('payment_type')
