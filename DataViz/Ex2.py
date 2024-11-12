@@ -21,7 +21,7 @@ y_values = pd.Series(tips_by_payment_method['tips'].values)
 
 bars = np.array(range(len(x_labels)))
 
-plt.xticks(bars, x_labels)
+plt.xticks(bars, x_labels, color='red',fontweight='bold')
 
 # write a line that will add the bars to the graph:
 plt.bar(bars, y_values)

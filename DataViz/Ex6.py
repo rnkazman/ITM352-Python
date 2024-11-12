@@ -1,4 +1,4 @@
-# 3D plot 
+# 3D plot of fares, trip miles and dropoff area
 import pandas as pd
 import matplotlib.pyplot as plt
 
