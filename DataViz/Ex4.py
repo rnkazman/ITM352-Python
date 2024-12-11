@@ -1,4 +1,4 @@
-# Create a scatterplot of fare by trip miles.  Save the plot to a PNG file.
+# Create a scatterplot of fare by trip miles.  Save the plot to a PNG file. 
 import pandas as pd
 import matplotlib.pyplot as plt
 
