@@ -26,8 +26,9 @@ def generate_numbers(a_student_id, num_reqs):
 
 # Example usage
 try:
+   print("Welcome to the Requirements Generator!")
    student_id = input("Enter your student id (XXX-XX-XXX): ")
    num1, num2 = generate_numbers(student_id, 10)
-   print(f"Your two numbers are: {num1} and {num2}")
+   print(f"Your two requirements are: {num1} and {num2}")
 except ValueError as e:
    print(f"Error: {e}")
