@@ -1,0 +1,6 @@
+Employee_ID,Age,Annual_Salary,Department_Code,Years_at_Company
+EMP001,35,"95000",DEV,7
+EMP002,28,"72000",MKT,3
+EMP003,42,"120000",LEAD,15
+EMP004,24,"60000",QA,1
+EMP005,51,"110000",HR,10
