@@ -7,4 +7,3 @@ results_df = pd.read_json("Taxi_Trips.json")
 print(results_df.describe())
 print(results_df.head())
 print("The median fare value is: ", results_df['fare'].median())
-
