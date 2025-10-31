@@ -13,10 +13,11 @@ pd.set_option('display.max_columns', None)
 try:
     # Attempt to read the CSV file
     print(f"Reading CSV file...")
-    sales_data = pd.read_csv(url, dtype_backend='pyarrow', on_bad_lines='skip')
+    sales_data = pd.read_csv(url, engine="pyarrow")
+#    sales_data = pd.read_csv(url, dtype_backend='pyarrow', on_bad_lines='skip')
 
     # We ask Pandas to parse the order_date field to turn it into a standard representation.
-    sales_data['order_date'] = pd.to_datetime(sales_data['order_date'], format='mixed')
+    sales_data['order_date'] = pd.to_datetime(sales_data['order_date'], format='%m/%d/%y', errors='coerce')
 
     # write 10 rows of sales data as CSV file
     # saving the dataframe
