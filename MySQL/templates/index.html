@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Price Filter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; max-width: 500px; }
+        input[type="number"], button { padding: 8px; margin-right: 10px; border: 1px solid #ddd; border-radius: 3px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .error { color: red; font-weight: bold; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h1>🏨 Find Rooms by Price</h1>
+    
+    <form method="POST" action="/">
+        <label for="min_price">Min Price:</label>
+        <input type="number" step="1.0" name="min_price" id="min_price" value="{{ min_price if min_price is not none else '0' }}" required>
+        
+        <label for="max_price">Max Price:</label>
+        <input type="number" step="1.0" name="max_price" id="max_price" value="{{ max_price if max_price is not none else '1000' }}" required>
+        
+        <button type="submit">Search Rooms</button>
+    </form>
+
+    {% if error %}
+        <p class="error">Error: {{ error }}</p>
+    {% endif %}
+
+    {% if rooms is not none %}
+        {% if rooms %}
+            <h2>Results for ${{ min_price }} - ${{ max_price }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Hotel No</th>
+                        <th>Hotel Name</th>
+                        <th>City</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.roomNo }}</td>
+                        <td>{{ room.hotelNo }}</td>
+                        <td>{{ room.hotelName }}</td>
+                        <td>{{ room.city }}</td>
+                        <td>{{ room.type }}</td>
+                        <td>${{ room.price | round(2) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            {% if request.method == 'POST' %}
+                <p>No rooms found in the price range **${{ min_price }} - ${{ max_price }}**.</p>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</body>
+</html>
