@@ -85,16 +85,16 @@ def display_menu(data):
     menu_options = (
    ("Show the first n rows of sales data", display_rows),
    ("Show the number of employees by region", employees_by_region),
-   ("Exit the program", exit_program)
-)
+   ("Exit the program", exit_program))
 
     print("\nAvailable Actions:")
     for index, (description, _) in enumerate(menu_options):
         print(f"{index + 1}. {description}")
     
     try:
-        choice = int(input("Select an option (1 to {}): ".format(len(menu_options))))
-        if 1 <= choice <= len(menu_options):
+        menu_len = len(menu_options)
+        choice = int(input("Select an option (1 to {}): ".format(menu_len)))
+        if 1 <= choice <= menu_len:
             action = menu_options[choice - 1][1]
             action(data)      # Call the selected function
         else:
