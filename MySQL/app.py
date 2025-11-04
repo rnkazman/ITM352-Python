@@ -1,5 +1,14 @@
 import mysql.connector
 from flask import Flask, render_template, request
+import locale
+
+# Set the locale to the desired currency format (e.g., U.S. Dollars)
+# On Linux/macOS, use 'en_US.UTF-8'. On Windows, 'English_United States' or 'en_US'.
+try:
+    locale.setlocale(locale.LC_ALL, 'en_US.UTF-8') 
+except locale.Error:
+    # Fallback for systems that don't recognize the UTF-8 suffix
+    locale.setlocale(locale.LC_ALL, 'en_US')
 
 # --- Configuration ---
 # REPLACE THESE WITH YOUR ACTUAL MySQL CREDENTIALS
@@ -27,8 +36,8 @@ def get_db_connection():
 def index():
     """Handles the main page, form submission, and displays results."""
     rooms = None
-    min_price = None
-    max_price = None
+    min_price = 0
+    max_price = 0
     error_message = None
 
     if request.method == 'POST':
@@ -49,7 +58,6 @@ def index():
                 error_message = "Could not connect to the database. Check credentials/server status."
             else:
                 cursor = conn.cursor(dictionary=True)
-
                 # 3. Construct and execute the SQL query
                 query = """
                 SELECT R.roomNo, R.hotelNo, R.type, R.price, H.hotelName, H.city
@@ -71,11 +79,17 @@ def index():
             error_message = f"An unexpected error occurred: {e}"
 
     # Render the template with the data
+    #print(min_price, max_price)
+    #print(type(min_price), type(max_price))
+    min_price_str = locale.currency(min_price, grouping=True)
+    max_price_str = locale.currency(max_price, grouping=True)
+
     return render_template('index.html', 
                            rooms=rooms, 
-                           min_price=min_price, 
-                           max_price=max_price,
+                           min_price=min_price_str, 
+                           max_price=max_price_str,
                            error=error_message)
+
 
 if __name__ == '__main__':
     # Flask will run on http://127.0.0.1:5000/ by default

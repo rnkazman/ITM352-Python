@@ -32,7 +32,7 @@
 
     {% if rooms is not none %}
         {% if rooms %}
-            <h2>Results for ${{ min_price }} - ${{ max_price }}</h2>
+            <h2>Results for {{ min_price }} - {{ max_price }}</h2>
             <table>
                 <thead>
                     <tr>
@@ -59,7 +59,7 @@
             </table>
         {% else %}
             {% if request.method == 'POST' %}
-                <p>No rooms found in the price range **${{ min_price }} - ${{ max_price }}**.</p>
+                <p>No rooms found in the price range **{{ min_price }} - {{ max_price }}**.</p>
             {% endif %}
         {% endif %}
     {% endif %}
