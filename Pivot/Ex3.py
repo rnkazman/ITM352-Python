@@ -10,7 +10,7 @@ url = 'https://drive.google.com/uc?id=1ujY0WCcePdotG2xdbLyeECFW9lCJ4t-K'
 
 try:
     df = pd.read_csv(url, engine='python', on_bad_lines='skip')
-    df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
+    df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce').dt.strftime('%Y-%m-%d')
     df['sales'] = df['quantity'] * df['unit_price']
     
     # Create pivot table aggregating sales by region and order_type
