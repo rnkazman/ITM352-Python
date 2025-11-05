@@ -1,8 +1,7 @@
 # Open a URL and extract its table information as a DataFrame.
 import urllib.request
 import ssl
-import pandas as pd
-import pyarrow
+import pandas as pd, pyarrow
 
 ssl._create_default_https_context = ssl._create_unverified_context
 pd.set_option("display.max_columns", None)
