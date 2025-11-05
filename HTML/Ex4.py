@@ -2,8 +2,6 @@
 import pandas as pd
 from sodapy import Socrata
 
-#pd.set_option("display.max_rows", None)
-
 # Initialize the Socrata client
 client = Socrata("data.cityofchicago.org", None)
 

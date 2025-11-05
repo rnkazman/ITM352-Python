@@ -29,3 +29,5 @@ for element in List_of_itm_people:
     print(element.text)
     
 print("number of itm people found: " + str(len(itm_people)))
+unique_itm_people = list(set(itm_people))
+print("number of unique itm people found: " + str(len(unique_itm_people)))

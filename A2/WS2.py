@@ -32,8 +32,10 @@ def load_csv(file_path):
         else:
             print("\nAll required columns are present.")
 
-        # We ask Pandas to parse the order_date field to turn it into a standard representation.
-        df['order_date'] = pd.to_datetime(df['order_date'], format='mixed')
+        # Ask Pandas to parse the order_date field with a standard representation.
+        df['order_date'] = pd.to_datetime(df['order_date'], format='%m/%d/%y', errors='coerce')
+ 
+    #    df['order_date'] = pd.to_datetime(df['order_date'], format='mixed')
         
         return df
 

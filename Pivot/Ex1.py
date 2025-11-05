@@ -9,7 +9,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 url = 'https://drive.google.com/uc?id=1ujY0WCcePdotG2xdbLyeECFW9lCJ4t-K'
 
 try:
-    df = pd.read_csv(url, engine='python', on_bad_lines='skip')
+    df = pd.read_csv(url, engine="pyarrow")
     df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
 
     print(df.head())

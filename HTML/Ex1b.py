@@ -15,5 +15,5 @@ for line in webpage:
     line = line.decode('utf-8')
 
     # Modify the following line to specify critera
-    if '<h2' in line:
+    if '<h2 class="title">' in line:
         print(line)
