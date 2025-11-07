@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # This will display a welcome message and a "Start Quiz" button
+    return render_template('index.html')  # This will display a welcome message and a "Start Quiz" link 
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
@@ -36,7 +36,7 @@ def quiz():
 
     return render_template('quiz.html', num=question_num, question= a_question, options=ordered_alternatives)  # Displays the question and options
 
-@app.route('/result')
+@app.route('/result') 
 def result():
     global score, question_num # get access to the score and question_number variables outside the function
     # get the result template before resetting the score and question number
