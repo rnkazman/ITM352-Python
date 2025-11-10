@@ -52,24 +52,12 @@ def prepare_questions(questions, num_questions):
     return random.sample(list(questions.items()), k=num_questions)
 
 
-def ask_question(question, alternatives):
-    correct_answer = alternatives[0]
-    ordered_alternatives = random.sample(alternatives, k=len(alternatives))
-
-    answer = get_answer(question, ordered_alternatives)
-    if answer == correct_answer:
-        print("⭐ Correct! ⭐\n")
-        return 1
-    else:
-        print(f"The answer is {correct_answer!r}, not {answer!r}\n")
-        return 0
-
-
 # Main quiz steps: preparing questions, running the quiz, giving feedback
 # Read in and load the file of quiz questions
-question_file = open('questions.json')
 NUM_QUESTIONS_PER_QUIZ = 5
+question_file = open('questions.json')
 QUESTIONS = json.load(question_file)
+print(f"Loaded {len(QUESTIONS)} questions")
 questions = prepare_questions(QUESTIONS, num_questions=NUM_QUESTIONS_PER_QUIZ)
 
 question_num = 0  # initialize the question counter
