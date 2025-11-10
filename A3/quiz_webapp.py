@@ -59,6 +59,7 @@ question_file = open('questions.json')
 QUESTIONS = json.load(question_file)
 print(f"Loaded {len(QUESTIONS)} questions")
 questions = prepare_questions(QUESTIONS, num_questions=NUM_QUESTIONS_PER_QUIZ)
+print(questions)
 
 question_num = 0  # initialize the question counter
 score = 0         # initialize the score
