@@ -8,5 +8,9 @@ def get_character_frequencies(word):
             freq_dict[character] += 1
     return freq_dict
 
-dict = get_character_frequencies("Snow White and the Seven Dwarves")
-print (dict)
+mydict = get_character_frequencies("Snow White and the Seven Dwarves")
+
+# Sort by keys (alphabetically)
+print("Sorted by keys (alphabetically):")
+sorted_by_keys = dict(sorted(mydict.items()))
+print(sorted_by_keys)
