@@ -1,9 +1,9 @@
 # Debugging Exercise 5
-def fibonacci(list):
-    Fibo = list[0]
-    for val in list:
-        Fibo = Fibo + val
-    return Fibo
+# Program to remove any scores from a list that are below 50.
+ 
+scores = [60, 45, 30, 85, 10, 90] 
 
-my_list = [1, 2, 3, 4, 5]
-print(fibonacci(my_list))  
+for score in scores: 
+    if score < 50: 
+        scores.remove(score) 
+print(scores) 
