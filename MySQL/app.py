@@ -14,10 +14,10 @@ except locale.Error:
 # REPLACE THESE WITH YOUR ACTUAL MySQL CREDENTIALS
 DB_CONFIG = {
     'user': 'root',        # e.g., 'root'
-    'password': 'root',    # e.g., 'mypassword'
+    'password': 'root',    # e.g., '' for XAMPP, 'mypassword' for your setup
     'host': '127.0.0.1',        # Usually 'localhost' or '127.0.0.1'
-    'port': 8889,               # The port you specified
-    'database': 'TravelX'
+    'port': 8889,               # Port 8889 for MAMP, 3306 for XAMPP/default MySQL
+    'database': 'TravelX'       # The name of your database
 }
 # ---------------------
 
