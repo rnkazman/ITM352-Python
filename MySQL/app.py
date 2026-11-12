@@ -17,7 +17,7 @@ DB_CONFIG = {
     'password': '',    # 'root' for MAMP, '' for XAMPP, user123's password, etc.
     'host': '127.0.0.1',    # Usually 'localhost' or '127.0.0.1'
     'port': 3307,           # Port 8889 for MAMP, 3306 for XAMPP/default MySQL
-    'database': 'Travel2'   # The name of your database
+    'database': 'Try1'   # The name of your database
 }
 # ---------------------
 
@@ -79,8 +79,6 @@ def index():
             error_message = f"An unexpected error occurred: {e}"
 
     # Render the template with the data
-    #print(min_price, max_price)
-    #print(type(min_price), type(max_price))
     min_price_str = locale.currency(min_price, grouping=True)
     max_price_str = locale.currency(max_price, grouping=True)
 
