@@ -17,7 +17,7 @@ DB_CONFIG = {
     'password': '',    # 'root' for MAMP, '' for XAMPP, user123's password, etc.
     'host': '127.0.0.1',    # Usually 'localhost' or '127.0.0.1'
     'port': 3307,           # Port 8889 for MAMP, 3306 for XAMPP/default MySQL
-    'database': 'Try1'   # The name of your database
+    'database': 'TestTravel'   # The name of your database
 }
 # ---------------------
 
