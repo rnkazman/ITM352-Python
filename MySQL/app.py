@@ -91,4 +91,4 @@ def index():
 
 if __name__ == '__main__':
     # Flask will run on http://127.0.0.1:5000/ by default
-    app.run(debug=True)
+    app.run(debug=True, port=5001)  # Port set to 5001 to avoid conflicts with other services
