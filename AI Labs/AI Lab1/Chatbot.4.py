@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from ex2 import INFO, MENU, MODEL, build_system_prompt
+from mycontext import INFO, MENU, MODEL, build_system_prompt
 
 load_dotenv()
 

@@ -12,8 +12,8 @@ MODEL = "openrouter/free"
 
 messages = [
     {"role": "system", "content": "You are a friendly assistant for Aloha Bikes, a bike rental shop in Waikiki. Answer in 2 sentences or less."},
-    #{"role": "user", "content": "What should I bring on a bike ride to Diamond Head?"}
-    {"role": "user", "content": "What is the best time of year to plant Hibiscus in Florida?"}
+    {"role": "user", "content": "What should I bring on a bike ride to Diamond Head?"}
+    #{"role": "user", "content": "What is the best time of year to plant Hibiscus in Florida?"}
 ]
 
 response = client.chat.completions.create(
