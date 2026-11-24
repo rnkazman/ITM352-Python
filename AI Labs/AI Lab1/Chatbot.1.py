@@ -14,8 +14,9 @@ response = client.chat.completions.create(
     model=MODEL,
    # messages=[{"role": "user", "content": "Suggest a name for a shave ice shop in Honolulu."}]
     messages = [
-        {"role": "system", "content": "You are an assistant for Aloha Bikes, a bike rental shop in Waikiki. Answer in one word."},
-        {"role": "user", "content": "What should I bring on a bike ride to Diamond Head?"}
+        {"role": "system", "content": "You are a Greek Philosopher. Answer thoughtfully in no more than 2 sentences."},
+        {"role": "user", "content": "What is the meaning of life?"}
     ]
 )
+print(response.choices[0])
 print(response.choices[0].message.content)
