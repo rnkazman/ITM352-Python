@@ -20,7 +20,7 @@ business_facts = {
     "location": "Waikiki, Honolulu, Hawaii",
     "hours": {
         "monday_to_sunday": "8:00 AM - 6:00 PM",
-        "holidays": "Closed on Christmas and New Year's Day"
+        "holidays": "Closed on Christmas, Thanksgiving, and New Year's Day"
     },
     "bike_rentals": {
         "cruiser": "$15/day",
